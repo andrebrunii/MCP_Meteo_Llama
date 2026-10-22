@@ -1,0 +1,165 @@
+{
+  "started_at_utc": "2026-10-22T17:21:10.710931+00:00",
+  "mode": "llm_mcp",
+  "model": "llama3.1:8b",
+  "city": "Roma",
+  "mcp_version": "1.30.0",
+  "status": "PASS",
+  "scope": "Single functional test, not a security certification or a four-architecture benchmark.",
+  "model_info": {
+    "details": {
+      "parent_model": "",
+      "format": "gguf",
+      "family": "llama",
+      "families": [
+        "llama"
+      ],
+      "parameter_size": "8.0B",
+      "quantization_level": "Q4_K_M"
+    },
+    "capabilities": [
+      "completion",
+      "tools"
+    ],
+    "modified_at": "2026-10-22T19:19:58.1973887+02:00"
+  },
+  "discovered_tools": [
+    {
+      "name": "get_current_weather",
+      "title": null,
+      "description": "Get current weather for one supported Italian city: Roma, Milano, Torino, Chieri or Napoli. Returns Celsius, humidity %, wind km/h, condition, timestamp and source.",
+      "inputSchema": {
+        "properties": {
+          "city": {
+            "enum": [
+              "Roma",
+              "Milano",
+              "Torino",
+              "Chieri",
+              "Napoli"
+            ],
+            "title": "City",
+            "type": "string"
+          }
+        },
+        "required": [
+          "city"
+        ],
+        "title": "get_current_weatherArguments",
+        "type": "object"
+      },
+      "outputSchema": null,
+      "icons": null,
+      "annotations": null,
+      "meta": null,
+      "execution": null
+    }
+  ],
+  "first_generation_seconds": 2.019,
+  "first_response": {
+    "model": "llama3.1:8b",
+    "created_at": "2026-10-22T17:21:13.7735671Z",
+    "message": {
+      "role": "assistant",
+      "content": "",
+      "tool_calls": [
+        {
+          "id": "call_hf6wonyn",
+          "function": {
+            "index": 0,
+            "name": "get_current_weather",
+            "arguments": {
+              "city": "Roma"
+            }
+          }
+        }
+      ]
+    },
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 2004916400,
+    "load_duration": 10927200,
+    "prompt_eval_count": 253,
+    "prompt_eval_cached_count": 0,
+    "prompt_eval_duration": 695635000,
+    "eval_count": 19,
+    "eval_duration": 1292501000
+  },
+  "tool_call": {
+    "name": "get_current_weather",
+    "arguments": {
+      "city": "Roma"
+    }
+  },
+  "tool_seconds": 0.234,
+  "mcp_result": {
+    "meta": null,
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"city\": \"Roma\",\n  \"latitude_requested\": 41.9028,\n  \"longitude_requested\": 12.4964,\n  \"temperature_c\": 19.2,\n  \"humidity_percent\": 55,\n  \"wind_kmh\": 6.8,\n  \"condition\": \"Coperto\",\n  \"weather_code\": 3,\n  \"valid_at\": \"2026-10-22T19:15\",\n  \"timezone\": \"Europe/Rome\",\n  \"utc_offset_seconds\": 7200,\n  \"retrieved_at_utc\": \"2026-10-22T17:21:14.004598+00:00\",\n  \"source\": \"Open-Meteo\",\n  \"source_url\": \"https://open-meteo.com/\",\n  \"data_note\": \"Condizioni attuali stimate da modelli meteorologici, non misura di una stazione sul posto.\"\n}",
+        "annotations": null,
+        "meta": null
+      }
+    ],
+    "structuredContent": null,
+    "isError": false
+  },
+  "weather": {
+    "city": "Roma",
+    "latitude_requested": 41.9028,
+    "longitude_requested": 12.4964,
+    "temperature_c": 19.2,
+    "humidity_percent": 55,
+    "wind_kmh": 6.8,
+    "condition": "Coperto",
+    "weather_code": 3,
+    "valid_at": "2026-10-22T19:15",
+    "timezone": "Europe/Rome",
+    "utc_offset_seconds": 7200,
+    "retrieved_at_utc": "2026-10-22T17:21:14.004598+00:00",
+    "source": "Open-Meteo",
+    "source_url": "https://open-meteo.com/",
+    "data_note": "Condizioni attuali stimate da modelli meteorologici, non misura di una stazione sul posto."
+  },
+  "final_generation_seconds": 6.248,
+  "final_response": {
+    "model": "llama3.1:8b",
+    "created_at": "2026-10-22T17:21:20.257111Z",
+    "message": {
+      "role": "assistant",
+      "content": "{\"city\": \"Roma\", \"temperature_c\": 19.2, \"humidity_percent\": 55, \"wind_kmh\": 6.8, \"condition\": \"Coperto\", \"valid_at\": \"2026-10-22T19:15\", \"timezone\": \"Europe/Rome\", \"source\": \"Open-Meteo\"}"
+    },
+    "done": true,
+    "done_reason": "stop",
+    "total_duration": 6244615000,
+    "load_duration": 15292200,
+    "prompt_eval_count": 325,
+    "prompt_eval_cached_count": 39,
+    "prompt_eval_duration": 355234000,
+    "eval_count": 74,
+    "eval_duration": 5839840000
+  },
+  "final_answer": {
+    "city": "Roma",
+    "temperature_c": 19.2,
+    "humidity_percent": 55,
+    "wind_kmh": 6.8,
+    "condition": "Coperto",
+    "valid_at": "2026-10-22T19:15",
+    "timezone": "Europe/Rome",
+    "source": "Open-Meteo"
+  },
+  "checks": {
+    "exact_fields": true,
+    "city": true,
+    "temperature_c": true,
+    "humidity_percent": true,
+    "wind_kmh": true,
+    "condition": true,
+    "valid_at": true,
+    "timezone": true,
+    "source": true
+  },
+  "total_seconds": 9.724
+}
